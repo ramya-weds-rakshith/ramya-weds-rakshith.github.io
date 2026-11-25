@@ -45,8 +45,8 @@ html[lang="te"] .heading{line-height:1.35}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--f-body);font-size:var(--body-size);line-height:var(--lh);color:var(--text);
-  background:var(--panel-deep);background-image:radial-gradient(rgba(193,154,75,.14) 1px,transparent 1.2px);
-  background-size:22px 22px;min-height:100vh;-webkit-font-smoothing:antialiased}
+  background:#e7d4a8;background-image:radial-gradient(120% 70% at 50% 0%,#f6ead0 0%,#ecdcb4 45%,#e2cf9f 100%);
+  background-attachment:fixed;min-height:100vh;-webkit-font-smoothing:antialiased}
 body.locked{overflow:hidden;height:100vh}
 svg{display:block}
 button{font:inherit;cursor:pointer;color:inherit;background:none;border:none}
@@ -100,6 +100,24 @@ a{color:inherit;text-decoration:none}
 .hero .names{margin:.6rem 0 .3rem}
 .hero .date{font-family:var(--f-label);letter-spacing:.12em;text-transform:uppercase;color:var(--date-c);font-size:1.05rem;margin-top:.8rem}
 .date{font-family:var(--f-label);letter-spacing:.12em;text-transform:uppercase;color:var(--date-c)}
+
+/* ===== Gold arch hero (from the Canva design) ===== */
+.arch-hero{position:relative;max-width:480px;margin:0 auto;filter:drop-shadow(0 16px 34px rgba(90,60,20,.28))}
+.arch-bg{width:100%;display:block;border-radius:6px}
+.arch-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.15rem;padding:0 17% 6%;text-align:center}
+.arch-content .invocation{color:#ffeccb;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  font-size:clamp(.62rem,2.5vw,.9rem);text-shadow:0 1px 6px rgba(70,42,8,.5)}
+.arch-names{display:flex;flex-direction:column;align-items:center;margin:.25rem 0 .1rem}
+.arch-content .name{color:#fff7ea;font-family:var(--f-name);line-height:.9;
+  font-size:clamp(2.5rem,12vw,4rem);text-shadow:0 2px 12px rgba(70,42,8,.4)}
+.arch-content .amp-big{color:#ffe6ba;font-family:var(--f-name);font-size:clamp(1.3rem,6vw,2rem);line-height:1;margin:.05rem 0}
+.arch-date{display:flex;align-items:center;justify-content:center;gap:.7rem;margin-top:.5rem;color:#fff3e0}
+.arch-date .dnum{font-family:var(--f-body);font-weight:700;font-size:clamp(1.6rem,7vw,2.4rem);line-height:1}
+.arch-date .dwrap{display:flex;flex-direction:column;gap:.05rem}
+.arch-date .dside{font-family:var(--f-label);letter-spacing:.14em;text-transform:uppercase;font-size:clamp(.56rem,2.2vw,.78rem);
+  border-top:1px solid rgba(255,240,215,.6);border-bottom:1px solid rgba(255,240,215,.6);padding:.12rem 0}
+html[lang="te"] .arch-content .name{font-family:var(--f-te-disp);font-size:clamp(2rem,9.5vw,3.1rem);line-height:1.15}
 
 .countdown{background:linear-gradient(180deg,var(--panel-3),var(--panel-2));border:1.5px solid var(--gold);
   border-radius:12px;padding:1.2rem 1rem;margin:1.6rem auto 0;max-width:420px;box-shadow:0 8px 24px rgba(58,45,27,.32)}
@@ -233,24 +251,24 @@ a{color:inherit;text-decoration:none}
   <div class="paper">
     <div class="toran" data-svg="toran"></div>
 
-    <section class="sec invite reveal">
-      <p class="label" data-t="ourInvitation"></p>
-      <div class="slides portrait" id="inviteSlides"></div>
-      <div class="slides-dots" id="inviteDots"></div>
-    </section>
-
-    <div class="rule"></div>
-
     <section class="sec hero reveal">
-      <div class="mandala" data-svg="mandala" aria-hidden="true"></div>
-      <div class="hero-inner">
-      <div class="om-top" aria-hidden="true"></div>
-      <p class="invocation" data-t="invocation"></p>
-      <p class="label" data-t="weddingInvitation" style="margin-top:.6rem"></p>
-      <p class="names" style="margin:.6rem 0">
-        <span class="name" data-t="nameA"></span><br><span class="amp-big">&amp;</span><br><span class="name" data-t="nameB"></span>
-      </p>
-      <p class="date" data-t="date"></p>
+      <div class="arch-hero">
+        <img class="arch-bg" src="images/arch-frame.jpg" alt="Wedding invitation">
+        <div class="arch-content">
+          <p class="invocation" data-t="together"></p>
+          <div class="arch-names">
+            <span class="name" data-t="nameA"></span>
+            <span class="amp-big">&amp;</span>
+            <span class="name" data-t="nameB"></span>
+          </div>
+          <div class="arch-date">
+            <span class="dside" data-t="wday"></span>
+            <span class="dnum" data-t="dnum"></span>
+            <span class="dside" data-t="dtime"></span>
+          </div>
+          <p class="invocation" data-t="monthyear" style="margin-top:.35rem"></p>
+        </div>
+      </div>
 
       <div class="countdown" id="countdown">
         <div class="cd-label" data-t="cdLabel"></div>
@@ -260,7 +278,6 @@ a{color:inherit;text-decoration:none}
           <div><div class="cd-num" id="cd-m">00</div><div class="cd-unit" data-t="minutes"></div></div>
           <div><div class="cd-num" id="cd-s">00</div><div class="cd-unit" data-t="seconds"></div></div>
         </div>
-      </div>
       </div>
     </section>
 
@@ -354,7 +371,6 @@ const CFG = {
   muhurtham:'2026-12-03T12:00:00+05:30',
   tz:'Asia/Kolkata',
   siteUrl: location.href.split('#')[0],
-  invite:['images/invite-1.jpg','images/invite-2.jpg','images/invite-3.jpg'],
   slides:['images/engagement-1.jpg','images/engagement-2.jpg','images/temple.jpg','images/waterfall-1.jpg','images/waterfall-2.jpg'],
   events:[
     {id:'muhurtham',icon:'kalash', featured:true, map:'https://maps.app.goo.gl/ZhxB6vqdUQ72ocSW8'}
@@ -368,6 +384,8 @@ const I18N = {
     invocation:'॥ Sri Ganeshaya Namaha ॥',
     weddingInvitation:'Wedding Invitation',
     nameA:'Ramya', nameB:'Rakshith',
+    together:'Together with their families',
+    wday:'Thursday', dnum:'3', dtime:'at 12 pm', monthyear:'December 2026',
     date:'Thursday, 3 December 2026',
     cdLabel:'Muhurtham in',
     days:'Days', hours:'Hours', minutes:'Minutes', seconds:'Seconds',
@@ -396,6 +414,8 @@ const I18N = {
     invocation:'॥ శ్రీ గణేశాయ నమః ॥',
     weddingInvitation:'శుభ వివాహ ఆహ్వానం',
     nameA:'రమ్య', nameB:'రక్షిత్',
+    together:'కుటుంబ సభ్యులతో కలిసి',
+    wday:'గురువారం', dnum:'3', dtime:'మధ్యాహ్నం 12', monthyear:'డిసెంబర్ 2026',
     date:'గురువారం, 3 డిసెంబర్ 2026',
     cdLabel:'ముహూర్తానికి ఇంకా',
     days:'రోజులు', hours:'గంటలు', minutes:'నిమిషాలు', seconds:'సెకన్లు',
@@ -538,7 +558,6 @@ ICONS.scallop = ICONS.scallop.replace('__SCALLOP_PTS__',
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
 
   setLang(lang);
-  initSlides('#inviteSlides','#inviteDots',CFG.invite,5500);
   initSlides('#slides','#slidesDots',CFG.slides,4000);
   tick(); setInterval(tick,1000);
 })();
