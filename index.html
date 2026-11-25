@@ -105,7 +105,7 @@ a{color:inherit;text-decoration:none}
 .arch-bg{width:100%;display:block;border-radius:6px}
 .arch-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:.15rem;padding:0 17% 6%;text-align:center}
-.arch-content .invocation{color:#ffeccb;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+.arch-content .invocation{color:#ffeccb;letter-spacing:.14em;text-transform:uppercase;font-weight:600;white-space:pre-line;line-height:1.5;
   font-size:clamp(.62rem,2.5vw,.9rem);text-shadow:0 1px 6px rgba(70,42,8,.5)}
 .arch-names{display:flex;flex-direction:column;align-items:center;margin:.25rem 0 .1rem}
 .arch-content .name{color:#fff7ea;font-family:var(--f-name);line-height:.9;
@@ -304,7 +304,7 @@ html[lang="te"] .arch-content .name{font-family:var(--f-te-disp);font-size:clamp
     <div class="rule"></div>
 
     <section class="sec events-sec reveal" id="events">
-      <p class="label" data-t="dateRange"></p>
+      <p class="label" data-t="dateRange" style="font-weight:700"></p>
       <h2 class="heading" data-t="celebrations"></h2>
       <div class="events" id="eventList"></div>
     </section>
@@ -402,7 +402,7 @@ const I18N = {
     invocation:'॥ శ్రీ గణేశాయ నమః ॥',
     weddingInvitation:'శుభ వివాహ ఆహ్వానం',
     nameA:'రమ్య', nameB:'రక్షిత్',
-    together:'కుటుంబ సభ్యులతో కలిసి',
+    together:'॥ శ్రీ గణేశాయ నమః ॥\n\nశుభ వివాహ ఆహ్వానం',
     wday:'గురువారం', dnum:'3', dtime:'మధ్యాహ్నం 12', monthyear:'డిసెంబర్ 2026',
     date:'గురువారం, 3 డిసెంబర్ 2026',
     cdLabel:'ముహూర్తానికి ఇంకా',
@@ -410,7 +410,7 @@ const I18N = {
     begun:'వేడుక మొదలయ్యింది',
     getDirections:'దారి చూపించు',
     theCouple:'వధూవరులు',
-    blessing:'దైవ కృపా కటాక్షంతో, పెద్దల ఆశీస్సులతో, మా దాంపత్య ప్రయాణపు శుభారంభాన్ని వీక్షించి జరుపుకోవడానికి మిమ్మల్ని సకుటుంబ సపరివార సమేతంగా సాదరంగా ఆహ్వానిస్తున్నాము.',
+    blessing:'దైవ కటాక్షంతో, పెద్దల ఆశీస్సులతో, మా దాంపత్య ప్రయాణపు శుభారంభాన్ని వీక్షించి జరుపుకోవడానికి మిమ్మల్ని సకుటుంబ సపరివార సమేతంగా సాదరంగా ఆహ్వానిస్తున్నాము.',
     ourInvitation:'మా ఆహ్వానం',
     theBride:'వధువు', bridePrefix:'చి. సౌ.', bride:'రమ్య కుర్మ', brideParents:'',
     theGroom:'వరుడు', groomPrefix:'చి.', groom:'రక్షిత్ గన్ను', groomParents:'',
@@ -423,9 +423,9 @@ const I18N = {
     await:'మీ రాక కోసం ఎదురుచూస్తున్నాము', hosts:'రమ్య & రక్షిత్', family:'కుటుంబ సభ్యులు మరియు శ్రేయోభిలాషులతో',
     copied:'చిరునామా కాపీ అయింది', linkCopied:'లింక్ కాపీ అయింది',
     ev:{
-      muhurtham:{name:'ముహూర్తం', date:'గురువారం, 3 డిసెంబర్', time:'మధ్యాహ్నం 12:00', venue:'ఫంక్షన్ హాల్, పాక్స్ తల్లా రాంపూర్', addr:'తడ్లా రాంపూర్, నిజామాబాద్, తెలంగాణ 503308', loc:'ఫంక్షన్ హాల్, పాక్స్ తల్లా రాంపూర్, తడ్లా రాంపూర్, నిజామాబాద్, తెలంగాణ 503308'}
+      muhurtham:{name:'pelli ముహూర్తం', date:'గురువారం, 3 డిసెంబర్', time:'మధ్యాహ్నం 12:00', venue:'ఫంక్షన్ హాల్, పాక్స్ తల్లా రాంపూర్', addr:'తడ్లా రాంపూర్, నిజామాబాద్, తెలంగాణ 503308', loc:'ఫంక్షన్ హాల్, పాక్స్ తల్లా రాంపూర్, తడ్లా రాంపూర్, నిజామాబాద్, తెలంగాణ 503308'}
     },
-    waMsg:u=>`పెద్దల ఆశీస్సులతో, అపారమైన ఆనందంతో మేము — రమ్య మరియు రక్షిత్ — వివాహ బంధంలోకి అడుగుపెట్టబోతున్నాము!\n\n🗓 ముహూర్తం • గురువారం, 3 డిసెంబర్ 2026, మధ్యాహ్నం 12:00\n\n${u}`
+    waMsg:u=>`పెద్దల ఆశీస్సులతో, ఆనందంతో మేము — రమ్య & రక్షిత్ — వివాహ బంధంలోకి అడుగుపెట్టబోతున్నాము! ఈ అందమైన కొత్త ప్రయాణాన్ని ప్రారంభిస్తున్న మేము, మీ ఆశీస్సులను కోరుతూ, మాతో చేరమని మిమ్మల్ని ఆహ్వానిస్తున్నాము.\n\n💍 ముహూర్తం • గురువారం, 3 డిసెంబర్ 2026, మధ్యాహ్నం 12:00\n\n${u}`
   }
 };
 
@@ -514,10 +514,10 @@ ICONS.scallop = ICONS.scallop.replace('__SCALLOP_PTS__',
   async function copy(x,m){try{await navigator.clipboard.writeText(x);toast(m);}catch(e){toast('—');}}
 
   const audio=$('#audio'),musicFab=$('#musicFab');
-  let plays=0; const MAX_PLAYS=5;              // play the track 5 times, then stop
-  audio.addEventListener('ended',()=>{plays++; if(plays<MAX_PLAYS){audio.play().catch(()=>{});}else{musicFab.classList.remove('playing');}});
-  function playMusic(){audio.volume=.85;audio.play().then(()=>musicFab.classList.add('playing')).catch(()=>{});}
-  musicFab.addEventListener('click',()=>{if(audio.paused){audio.play().then(()=>musicFab.classList.add('playing')).catch(()=>{});}else{audio.pause();musicFab.classList.remove('playing');}});
+  let plays=0; const MAX_PLAYS=4;              // play the track 4 times, then mute
+  audio.addEventListener('ended',()=>{plays++; if(plays<MAX_PLAYS){audio.play().catch(()=>{});}else{audio.muted=true;audio.pause();musicFab.classList.remove('playing');}});
+  function playMusic(){audio.muted=false;audio.volume=.85;audio.play().then(()=>musicFab.classList.add('playing')).catch(()=>{});}
+  musicFab.addEventListener('click',()=>{if(audio.paused){audio.muted=false;audio.play().then(()=>musicFab.classList.add('playing')).catch(()=>{});}else{audio.pause();musicFab.classList.remove('playing');}});
 
   function revealObserve(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});$$('.reveal').forEach(el=>io.observe(el));}
 
