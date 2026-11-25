@@ -92,7 +92,6 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--card-w);margin:0 auto;padding:1.6rem 1rem 3rem}
 .paper{position:relative;background:linear-gradient(180deg,var(--paper-1),var(--paper-2));
   border:1px solid var(--gold-lo);border-radius:8px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45)}
-.toran svg{width:100%;height:70px;display:block}
 .sec{padding:2.2rem 1.6rem;text-align:center}
 .rule{width:60%;height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent)}
 .heading{font-family:var(--f-name);color:var(--head);font-size:2.6rem;line-height:1.1;font-weight:400}
@@ -181,20 +180,13 @@ html[lang="te"] .arch-content .name{font-family:var(--f-te-disp);font-size:clamp
 .foot .await{font-style:italic;color:var(--text);margin-bottom:.4rem}
 .foot .hosts{font-family:var(--f-label);letter-spacing:.1em;text-transform:uppercase;color:var(--head);font-size:1.15rem}
 .foot .fam{color:var(--text-soft)}
-.scallop svg{width:100%;height:22px;display:block}
 
 .hero{position:relative}
 .hero-inner{position:relative;z-index:1}
 .om-top{width:60px;height:56px;margin:0 auto 1rem;background:url('images/om-gold.png') center/contain no-repeat;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
 .mandala{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:360px;max-width:88%;z-index:0;opacity:.1;pointer-events:none}
 .mandala svg{width:100%;height:auto;color:var(--gold)}
-.paper::before,.paper::after{content:"";position:absolute;top:62px;width:112px;height:138px;
-  background-size:contain;background-repeat:no-repeat;pointer-events:none;z-index:4;opacity:.96}
-.paper::before{left:7px;background-position:top left}
-.paper::after{right:7px;transform:scaleX(-1)}
-.paper::before,.paper::after{background-image:url('images/orn-corner-gold.png')}
 .sec,.rule{position:relative;z-index:1}
-.foot-band{height:68px;background-size:cover;background-position:center;background-image:url('images/band-gold.jpg')}
 
 .fab-wrap{position:fixed;right:calc(1rem + env(safe-area-inset-right));bottom:calc(1rem + env(safe-area-inset-bottom));
   z-index:40;display:none;gap:.7rem;align-items:flex-end}
@@ -249,8 +241,6 @@ html[lang="te"] .arch-content .name{font-family:var(--f-te-disp);font-size:clamp
 <!-- ============ MAIN INVITATION ============ -->
 <div class="wrap">
   <div class="paper">
-    <div class="toran" data-svg="toran"></div>
-
     <section class="sec hero reveal">
       <div class="arch-hero">
         <img class="arch-bg" src="images/arch-frame.jpg" alt="Wedding invitation">
@@ -344,8 +334,6 @@ html[lang="te"] .arch-content .name{font-family:var(--f-te-disp);font-size:clamp
       <p class="hosts" data-t="hosts"></p>
       <p class="fam" data-t="family"></p>
     </section>
-    <div class="foot-band" aria-hidden="true"></div>
-    <div class="scallop" data-svg="scallop"></div>
   </div>
 </div>
 
@@ -419,7 +407,7 @@ const I18N = {
     date:'గురువారం, 3 డిసెంబర్ 2026',
     cdLabel:'ముహూర్తానికి ఇంకా',
     days:'రోజులు', hours:'గంటలు', minutes:'నిమిషాలు', seconds:'సెకన్లు',
-    begun:'వేడుకలు మొదలయ్యాయి',
+    begun:'వేడుక మొదలయ్యింది',
     getDirections:'దారి చూపించు',
     theCouple:'వధూవరులు',
     blessing:'దైవ కృపా కటాక్షంతో, పెద్దల ఆశీస్సులతో, మా దాంపత్య ప్రయాణపు శుభారంభాన్ని వీక్షించి జరుపుకోవడానికి మిమ్మల్ని సకుటుంబ సపరివార సమేతంగా సాదరంగా ఆహ్వానిస్తున్నాము.',
@@ -428,7 +416,7 @@ const I18N = {
     theGroom:'వరుడు', groomPrefix:'చి.', groom:'రక్షిత్ గన్ను', groomParents:'',
     grace:'దయచేసి వేడుకకు విచ్చేసి మమ్మల్ని ఆశీర్వదించండి.',
     ourMoments:'మా కొన్ని క్షణాలు', ourStory:'మా కథ',
-    dateRange:'3 డిసెంబర్ 2026', celebrations:'వేడుకలు',
+    dateRange:'3 డిసెంబర్ 2026', celebrations:'వేడుక',
     whereWeGather:'మనం కలిసే చోటు', venue:'వేదిక',
     copyAddress:'చిరునామా కాపీ చేయి',
     spreadJoy:'ఆనందాన్ని పంచండి', shareInvite:'ఆహ్వానాన్ని పంచుకోండి', whatsapp:'వాట్సాప్', copyLink:'లింక్ కాపీ చేయి',
