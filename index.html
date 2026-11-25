@@ -111,7 +111,6 @@ a{color:inherit;text-decoration:none}
 .couple-block{margin:1.2rem 0}
 .c-photo{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:center top;cursor:zoom-in;margin:0 auto .5rem;display:block;
   border:3px solid var(--gold);box-shadow:0 6px 18px rgba(58,45,27,.3),0 0 0 6px rgba(193,154,75,.14)}
-.c-hint{font-family:var(--f-label);letter-spacing:.08em;text-transform:uppercase;color:var(--gold-lo);font-size:.72rem;opacity:.85;margin:0 0 .5rem}
 .lb{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;padding:5vw;
   background:rgba(34,25,13,.92);cursor:zoom-out}
 .lb.on{display:flex}
@@ -262,7 +261,6 @@ a{color:inherit;text-decoration:none}
       <p class="blessing" data-t="blessing"></p>
       <div class="couple-block">
         <img class="c-photo" src="images/kid-ramya.jpg" alt="Ramya" loading="lazy">
-        <p class="c-hint" data-t="tapHint"></p>
         <p class="label" data-t="theBride" style="color:var(--gold-lo)"></p>
         <p class="person-name"><span class="prefix" data-t="bridePrefix"></span> <span data-t="bride"></span></p>
         <p class="parents" data-t="brideParents"></p>
@@ -270,7 +268,6 @@ a{color:inherit;text-decoration:none}
       <div class="amp-div">&amp;</div>
       <div class="couple-block">
         <img class="c-photo" src="images/kid-rakshith.jpg" alt="Rakshith" loading="lazy">
-        <p class="c-hint" data-t="tapHint"></p>
         <p class="label" data-t="theGroom" style="color:var(--gold-lo)"></p>
         <p class="person-name"><span class="prefix" data-t="groomPrefix"></span> <span data-t="groom"></span></p>
         <p class="parents" data-t="groomParents"></p>
@@ -338,7 +335,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <div class="toast" id="toast"></div>
-<audio id="audio" src="audio/music.mp3" preload="auto" loop></audio>
+<audio id="audio" src="audio/music.mp3" preload="auto"></audio>
 <div class="lb" id="lb"><button class="lb-x" id="lbX" aria-label="Close">&times;</button><img id="lbImg" src="" alt=""></div>
 
 <script>
@@ -367,9 +364,8 @@ const I18N = {
     getDirections:'Get directions',
     theCouple:'The Couple',
     blessing:'With the blessings and grace of the Divine, and the blessings of our elders, we warmly invite you and your family to witness and celebrate the auspicious beginning of our marital journey.',
-    tapHint:'Tap to view',
-    theBride:'The Bride', bridePrefix:'Chi. Sow.', bride:'Ramya Kurma', brideParents:'[FILL: Daughter of (Bride’s parents)]',
-    theGroom:'The Groom', groomPrefix:'Chi.', groom:'Rakshith Gannu', groomParents:'[FILL: Son of (Groom’s parents)]',
+    theBride:'The Bride', bridePrefix:'Chi. Sow.', bride:'Ramya Kurma', brideParents:'',
+    theGroom:'The Groom', groomPrefix:'Chi.', groom:'Rakshith Gannu', groomParents:'',
     grace:'Kindly grace the occasion and bless us with your love.',
     ourMoments:'A few of our moments', ourStory:'Our Story',
     dateRange:'3 December 2026', celebrations:'Celebrations',
@@ -395,9 +391,8 @@ const I18N = {
     getDirections:'దారి చూపించు',
     theCouple:'వధూవరులు',
     blessing:'దైవ కృపా కటాక్షంతో, పెద్దల ఆశీస్సులతో, మా దాంపత్య ప్రయాణపు శుభారంభాన్ని వీక్షించి జరుపుకోవడానికి మిమ్మల్ని సకుటుంబ సపరివార సమేతంగా సాదరంగా ఆహ్వానిస్తున్నాము.',
-    tapHint:'చూడటానికి తాకండి',
-    theBride:'వధువు', bridePrefix:'చి. సౌ.', bride:'రమ్య కుర్మ', brideParents:'[FILL: వధువు తల్లిదండ్రులు]',
-    theGroom:'వరుడు', groomPrefix:'చి.', groom:'రక్షిత్ గన్ను', groomParents:'[FILL: వరుని తల్లిదండ్రులు]',
+    theBride:'వధువు', bridePrefix:'చి. సౌ.', bride:'రమ్య కుర్మ', brideParents:'',
+    theGroom:'వరుడు', groomPrefix:'చి.', groom:'రక్షిత్ గన్ను', groomParents:'',
     grace:'దయచేసి వేడుకకు విచ్చేసి మమ్మల్ని ఆశీర్వదించండి.',
     ourMoments:'మా కొన్ని క్షణాలు', ourStory:'మా కథ',
     dateRange:'3 డిసెంబర్ 2026', celebrations:'వేడుకలు',
@@ -497,6 +492,8 @@ ICONS.scallop = ICONS.scallop.replace('__SCALLOP_PTS__',
   async function copy(x,m){try{await navigator.clipboard.writeText(x);toast(m);}catch(e){toast('—');}}
 
   const audio=$('#audio'),musicFab=$('#musicFab');
+  let plays=0; const MAX_PLAYS=5;              // play the track 5 times, then stop
+  audio.addEventListener('ended',()=>{plays++; if(plays<MAX_PLAYS){audio.play().catch(()=>{});}else{musicFab.classList.remove('playing');}});
   function playMusic(){audio.volume=.85;audio.play().then(()=>musicFab.classList.add('playing')).catch(()=>{});}
   musicFab.addEventListener('click',()=>{if(audio.paused){audio.play().then(()=>musicFab.classList.add('playing')).catch(()=>{});}else{audio.pause();musicFab.classList.remove('playing');}});
 
