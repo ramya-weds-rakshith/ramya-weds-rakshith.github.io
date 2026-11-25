@@ -139,6 +139,14 @@ html[lang="te"] .arch-content .name{font-family:var(--f-te-disp);font-size:clamp
 .couple-block{margin:1.2rem 0}
 .c-photo{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:center top;cursor:zoom-in;margin:0 auto .5rem;display:block;
   border:3px solid var(--gold);box-shadow:0 6px 18px rgba(58,45,27,.3),0 0 0 6px rgba(193,154,75,.14)}
+/* kid <-> adult flip card (each face holds ~2s) */
+.flip{width:150px;height:150px;margin:0 auto .5rem;perspective:700px}
+.flip-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:flipcard 4s ease-in-out infinite}
+.flip-face{position:absolute;inset:0;margin:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flip-back{transform:rotateY(180deg)}
+@keyframes flipcard{0%,45%{transform:rotateY(0)}50%,95%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
+@media (max-width:480px){.flip{width:128px;height:128px}}
+@media (prefers-reduced-motion:reduce){.flip-inner{animation:none}}
 .lb{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;padding:5vw;
   background:rgba(34,25,13,.92);cursor:zoom-out}
 .lb.on{display:flex}
@@ -290,14 +298,20 @@ html[lang="te"] .arch-content .name{font-family:var(--f-te-disp);font-size:clamp
       <p class="label" data-t="theCouple"></p>
       <p class="blessing" data-t="blessing"></p>
       <div class="couple-block">
-        <img class="c-photo" src="images/kid-ramya.jpg" alt="Ramya" loading="lazy">
+        <div class="flip"><div class="flip-inner">
+          <img class="c-photo flip-face" src="images/kid-ramya.jpg" alt="Ramya as a child" loading="lazy">
+          <img class="c-photo flip-face flip-back" src="images/ramya.jpg" alt="Ramya" loading="lazy">
+        </div></div>
         <p class="label" data-t="theBride" style="color:var(--gold-lo)"></p>
         <p class="person-name"><span class="prefix" data-t="bridePrefix"></span> <span data-t="bride"></span></p>
         <p class="parents" data-t="brideParents"></p>
       </div>
       <div class="amp-div">&amp;</div>
       <div class="couple-block">
-        <img class="c-photo" src="images/kid-rakshith.jpg" alt="Rakshith" loading="lazy">
+        <div class="flip"><div class="flip-inner">
+          <img class="c-photo flip-face" src="images/kid-rakshith.jpg" alt="Rakshith as a child" loading="lazy">
+          <img class="c-photo flip-face flip-back" src="images/rakshith.jpg" alt="Rakshith" loading="lazy">
+        </div></div>
         <p class="label" data-t="theGroom" style="color:var(--gold-lo)"></p>
         <p class="person-name"><span class="prefix" data-t="groomPrefix"></span> <span data-t="groom"></span></p>
         <p class="parents" data-t="groomParents"></p>
@@ -389,7 +403,7 @@ const CFG = {
   muhurtham:'2026-12-03T12:00:00+05:30',
   tz:'Asia/Kolkata',
   siteUrl: location.href.split('#')[0],
-  slides:['images/engagement-1.jpg','images/engagement-2.jpg','images/temple.jpg','images/waterfall-1.jpg','images/waterfall-2.jpg'],
+  slides:['images/couple.jpg','images/engagement-1.jpg','images/engagement-2.jpg','images/temple.jpg','images/waterfall-1.jpg','images/waterfall-2.jpg'],
   events:[
     {id:'muhurtham',icon:'kalash', featured:true, map:'https://maps.app.goo.gl/ZhxB6vqdUQ72ocSW8'}
   ]
